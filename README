@@ -1,0 +1,10 @@
+
+NJUG Lab #1: Raffle tool!
+
+Requirements:
+	Using the Meetup API, get RSVP 'yes' event attendants and select a winner at random.
+	No winner may be selected twice.
+	
+Notes:
+	You'll need to use your own Meetup API key!!
+	You can get that here: http://www.meetup.com/meetup_api/key/
