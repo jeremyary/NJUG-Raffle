@@ -1,8 +1,11 @@
 
 NJUG Lab #1: Raffle tool!
 
+Create a handy dandy groovy script to assist with picking raffle winners at NJUG events.
+
 Requirements:
-	Using the Meetup API, get RSVP 'yes' event attendants and select a winner at random.
+	Only members who RSVP'd 'yes' to the Meetup event should be eligible
+	Winner should be selected at random.
 	No winner may be selected twice.
 	
 Notes:
