@@ -45,16 +45,17 @@ http.get( path: '/events',
         key: API_KEY,
         sign: true,
         page: 20,
-        group_urlname: 'nashvillejug'
+        group_urlname: 'nashvillejug',
+	status: 'past'
     ]) { eventsResponse, eventsJson ->
 
     def events = new JsonSlurper().parseText(eventsJson.toString())
     println "${events.meta.count} event(s) found..."
 
     // ok, so we have some events...let's see how many faithful JUG members RSVP'd to enter
-    events.results.each {
-        println it.name
-        println "${it.rsvpcount} people RSVP'd to attend..."
+    events.results[-1].with {
+        println name
+        println "${rsvpcount} people RSVP'd to attend..."
 
         http.get( path: '/2/rsvps',
                 query: [
@@ -62,7 +63,7 @@ http.get( path: '/events',
                         sign: true,
                         page: 20,
                         rsvp: 'yes',
-                        event_id: it.id
+                        event_id: id
                 ]) { rsvpResponse, rsvpJson ->
 
             def rsvps = new JsonSlurper().parseText(rsvpJson.toString())
